@@ -1,13 +1,14 @@
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
+const path = require("path")
 require("dotenv").config()
 
 const app = express()
 
 app.use(express.json())
 app.use(express.static("uploads"))
-app.use(express.static("dist"))
+app.use(express.static(path.join(__dirname, "dist")))
 app.use(cors({
     origin: true,
     credentials: true
@@ -16,6 +17,7 @@ app.use(cors({
 app.use("/api/blogs", require("./routes/blog.route"))
 app.use("/api/users", require("./routes/User.route"))
 app.use("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "dist", "index.html"))
     res.status(400).json({ message: "Resource Not Found" })
 })
 app.use((err, req, res, next) => {
