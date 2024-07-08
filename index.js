@@ -7,7 +7,11 @@ const app = express()
 
 app.use(express.json())
 app.use(express.static("uploads"))
-app.use(cors())
+app.use(cors({
+    origin: true,
+    credentials: true
+}))
+
 app.use("/api/blogs", require("./routes/blog.route"))
 app.use("/api/users", require("./routes/User.route"))
 app.use("*", (req, res) => {
