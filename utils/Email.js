@@ -11,7 +11,8 @@ exports.sendEmail = ({ to, subject, message }) => new Promise((resolve, reject) 
     mailer.sendMail({
         to: to,
         subject: subject,
-        text: message
+        text: message,
+        html: message
     }, (err) => {
         if (err) {
             reject("Unable To Send Email" + err.message)
