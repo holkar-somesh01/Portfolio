@@ -16,7 +16,13 @@ exports.addUser = asyncHandler(async (req, res) => {
         to: req.body.email,
         subject: `Enquire.!`,
         message: `<h1>Thank You !</h1>
-        <p>Thank you so much for valuable time ${ req.body.name} to reach towords me. I'll try my Best to reach you as soon as possible till the you just wait for my reply. Once again Thank YOu So Much..!</p>`,
+        <p>Thank you so much for valuable time ${ req.body.name} to reach towords me. I'll try my Best to reach you as soon as possible till the you just wait for my reply. Once again Thank YOu So Much..!</p>
+        <img
+      style={{ height: 200, width: 400, padding: "20px", objectFit: "contain" }}
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAaAO_YUlk5eMWDiTvRK0Rauy1yOzgFbefyA&s"
+      alt="Porfolio-logo"
+    />
+        <p style={{ marginTop: "100px", color: "ActiveBorder" }}>Best Regards,- Mr. Someshwar Holkar</p>`,
     })
     res.json({ message: "User Add Success" })
 })
