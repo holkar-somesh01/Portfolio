@@ -1,18 +1,11 @@
 const multer = require("multer")
 const path = require("path")
-const fs = require("fs")
 
-const storage = multer.diskStorage({
+const Storage = multer.diskStorage({
     filename: (req, file, cb) => {
         const fn = Date.now() + path.extname(file.originalname)
         cb(null, fn)
-    },
-    destination: (req, file, cb) => {
-        const dest = "uploads"
-        if (!fs.existsSync(dest)) {
-            fs.mkdirSync(dest)
-        }
-        cb(null, dest)
     }
 })
-module.exports = multer({ storage }).single("hero")
+const upload = multer({ storage: Storage }).single("images")
+module.exports = upload
