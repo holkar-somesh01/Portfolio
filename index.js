@@ -18,7 +18,7 @@ app.use("/api/users", require("./routes/User.route"))
 
 app.use("*", (req, res) => {
     res.sendFile(path.join(__dirname, "dist", "index.html"))
-    res.status(400).json({ message: "Resource Not Found" })
+    // res.status(400).json({ message: "Resource Not Found" })
 })
 app.use((err, req, res, next) => {
     console.log(err)
